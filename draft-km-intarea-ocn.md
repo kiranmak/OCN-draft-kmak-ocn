@@ -149,24 +149,25 @@ The traffic originating from change is triggered through commands delivered to a
 ~~~~~ drawing
             +----------+ +---------+
             | Actuator | | Sensor  |
+            | Point    | | Point   |
             +---^------+ +-----^---+
                 |              |
-                |AP            | SP
+                |AP-I          | SP-I
             +---v--------------v-----+
             | Operations & Control   |
             |       Network (OCN)    |
             +-----------^------------+
-                        | CP
+                        |
                 +-------v------+
                 | Controller   |
-                |   Access     |
+                |   Point      |
                 +--------------+
                       ^
                       | Northbound interface to controller
                       V
                 ---------------
-                Applications
-                -------------
+                | Applications |
+                ---------------
 ~~~~~
 {: #ocn-model title="Operations & Control Networks(OCN) - Reference Model"}
 
@@ -199,9 +200,13 @@ A sensor interface is used for communication between the sensor point and the OC
 
 Sensor OCN Interface is expected to emit more data periodically as per the requested periodicity. It supports largely periodic but asynchronous communications as well.
 
-# Characteristics of Messages over OCNs {#characteristics}
+# OCN Message Characteristics {#characteristics}
 
 The interfaces carry specific type of messages and are described as follows:
+
+## In-time messages:
+## On-time messages
+
 
 
 # Northbound Application Interface
