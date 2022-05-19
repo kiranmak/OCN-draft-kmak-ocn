@@ -4,7 +4,7 @@ docname: draft-km-intarea-ocn-latest
 title: Operations and Control Networks - Reference Model and Taxonomy
 date:  false
 category: info
-stream: IETF
+stream: independent
 
 ipr: trust200902
 area: INTAREA
@@ -274,20 +274,37 @@ This interface is a bidirectional.
 
 ### Northbound Application Interface {#ocn-nbi}
 
-An application domain is a group of actuators, sensors and controller. The application domain will inclue access domains and be interconnected using OCN.
+An application domain is a group of actuators, sensors and controller. The application domain will include access domains and be interconnected using OCN.
 
 ## OCN Message Classification {#msgs}
 
-The specifics and types of messages exchanges over the interfaces are described as follows:
+OC-networks are designed for the applications with stringent guarantees of command execution. In order to clearly understand the behavior of OCN, classification of message types is described below.
 
 ### In-time messages
 
-TODO
+In-time messages supply data for with-in a bounded time of arrival of data packets.  Controller to/from field device messages must reach with in the specified time; such type of communication requirement is also referred to as bounded latency guarantee.
+Operations such as feedback control loops,
 
 ### On-time messages
 
-TODO
+ The on-time messages supply data at a specific time with tolerance for only a very small difference. On-time
+ message guarantees complement in-time services. On-time messages must ensure that the actuator executes the command
+ at a specific time. If the message used bounded latency, then then OCN could deliver the message before the precise when
+ the command should be executed. Either it requires actuator to be sophisticated enough to buffer the message until the exact
+ time or network should deliver the packet at exact time. This will ensure that the actuator has finished previous operation.
 
+  This is particularly relevant to safety response applications such as moving autonomous objects (cars, drones), where in-time
+  message delivery could cause unpredictable outcomes, but on-time message will assure that the system behaviour is precisely controlled.
+
+### Reliability
+
+# OCN Realizations
+
+## Physical Layer
+
+## Data-link layer
+
+## Network Layer OCN
 
 # IANA Considerations
 
