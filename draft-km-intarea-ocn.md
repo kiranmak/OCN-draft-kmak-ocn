@@ -7,8 +7,8 @@ category: info
 stream: independent
 
 ipr: trust200902
-area: INTAREA
-workgroup: Independent Submission
+area: "Internet"
+workgroup: "Internet Area Working Group"
 keyword: Internet-Draft
 
 stand_alone: yes
