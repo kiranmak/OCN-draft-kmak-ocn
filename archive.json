@@ -1,0 +1,83 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2022-06-30T01:01:52.325749+00:00",
+  "repo": "kiranmak/draft-kmak-ocn",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOHWpQH844M1VK",
+      "title": "Create setup.yml",
+      "url": "https://github.com/kiranmak/draft-kmak-ocn/pull/1",
+      "state": "MERGED",
+      "author": "kiranmak",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-05-20T15:45:34Z",
+      "updatedAt": "2022-05-20T15:47:08Z",
+      "baseRepository": "kiranmak/draft-kmak-ocn",
+      "baseRefName": "main",
+      "baseRefOid": "fff780fad3cc9342faaef1fd313042fe93664910",
+      "headRepository": "kiranmak/draft-kmak-ocn",
+      "headRefName": "setup-fix-patch-1",
+      "headRefOid": "114f5c53601c6dc4981a3aeee4b94c1168f6d11f",
+      "closedAt": "2022-05-20T15:47:08Z",
+      "mergedAt": "2022-05-20T15:47:08Z",
+      "mergedBy": "kiranmak",
+      "mergeCommit": {
+        "oid": "aa29c56d699cab27c70036f82540810ff3f6fd39"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
