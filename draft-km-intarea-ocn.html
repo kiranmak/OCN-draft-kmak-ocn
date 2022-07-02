@@ -7,6 +7,7 @@
 <title>Operations and Control Networks - Reference Model and Taxonomy</title>
 <meta content="Kiran Makhijani" name="author">
 <meta content="Tooba Faisal" name="author">
+<meta content="Richard Li" name="author">
 <meta content="
        This text formulates a specialized network concept to support communication constraints in automated systems. These
 specialized networks, formulated as Operations and Control networks (OCN), are significant to many application scenarios
@@ -15,25 +16,26 @@ describing the associated components, interfaces, and reference points.
 The reference model is independent of any specific technology.
 Standardized mechanisms will facilitate large-scale machine-to-machine communication and help with the integration between OCN and the Internet. 
     " name="description">
-<meta content="xml2rfc 3.12.2" name="generator">
+<meta content="xml2rfc 3.12.10" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-km-intarea-ocn-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.12.2
-    Python 3.8.13
+  xml2rfc 3.12.10
+    Python 3.10.4
     appdirs 1.4.4
     ConfigArgParse 1.5.3
-    google-i18n-address 2.5.0
+    google-i18n-address 2.5.1
     html5lib 1.1
     intervaltree 3.1.0
     Jinja2 2.11.3
     kitchen 1.2.6
     lxml 4.8.0
-    pycountry 22.1.10
+    MarkupSafe 2.0.1
+    pycountry 20.7.3
     pyflakes 2.4.0
     PyYAML 6.0
     requests 2.27.1
-    setuptools 58.0.4
+    setuptools 59.4.0
     six 1.16.0
 -->
 <link href="draft-km-intarea-ocn.xml" rel="alternate" type="application/rfc+xml">
@@ -158,6 +160,14 @@ Standardized mechanisms will facilitate large-scale machine-to-machine communica
   font-weight: 700;
   font-display: swap;
   src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -341,7 +351,7 @@ ol, ul {
   padding: 0;
   margin: 0 0 0.5em 2em;
 }
-ol ol, ul ul, ol ul, ul ol {
+:is(ol, ul) :is(ol, ul) {
   margin-left: 1em;
 }
 li {
@@ -356,8 +366,7 @@ ul.empty, .ulEmpty {
 ul.empty li, .ulEmpty li {
   margin-top: 0.5em;
 }
-ul.compact, .ulCompact,
-ol.compact, .olCompact {
+:is(ul, ol).compact, .ulCompact, .olCompact {
   line-height: 100%;
   margin: 0 0 0 2em;
 }
@@ -373,7 +382,7 @@ dl > dd {
   margin-bottom: .8em;
   min-height: 1.3em;
 }
-dl.compact > dd, .dlCompact > dd {
+:is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0em;
 }
 dl > dd > dl {
@@ -415,6 +424,9 @@ tt, code {
      remove leading to avoid altering the final height of lines */
   line-height: 0;
 }
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
+}
 pre {
   border: 1px solid var(--line-color);
   font-size: 13.5px;
@@ -439,6 +451,19 @@ figcaption, caption {
   text-align: left;
 }
 @media screen {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) p {
+    margin: -2px 0;
+    max-height: 0;
+    transition: max-height 2s ease, margin 0.5s ease 0.5s;
+    overflow: hidden;
+  }
+  :is(#status-of-memo, #copyright):hover p,
+  :is(#status-of-memo, #copyright) h2:target ~ p {
+    margin: 0.5em 0;
+    max-height: 500px;
+    overflow: auto;
+  }
   pre, svg {
     display: inline-block;
     overflow-x: auto;
@@ -454,7 +479,7 @@ figcaption, caption {
     display: block;
     width: calc(100% - 25px);
   }
-  pre + .pilcrow, svg + .pilcrow {
+  :is(pre, svg) + .pilcrow {
     display: inline-block;
     vertical-align: text-bottom;
     padding-bottom: 8px;
@@ -503,17 +528,11 @@ th, td {
 th {
   background-color: var(--line-color);
 }
-tr:nth-child(2n) > td {
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
   background-color: var(--background-color);
 }
-tr:nth-child(2n+1) > td {
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
   background-color: var(--highlight-color);
-}
-thead+tbody > tr:nth-child(2n) > td {
-  background-color: var(--highlight-color);
-}
-thead+tbody > tr:nth-child(2n+1) > td {
-  background-color: var(--background-color);
 }
 table caption {
   margin: 0;
@@ -553,8 +572,9 @@ hr {
 }
 .bcp14 {
   font-variant: small-caps;
+  font-weight: 600;
+  font-size: 14.5px;
 }
-
 .role {
   font-variant: all-small-caps;
 }
@@ -793,7 +813,7 @@ hr.addr {
     margin: 0 0 0 4px;
     font-size: var(--small-font-size);
   }
-  #toc ul p, #toc ul li {
+  #toc ul :is(p, li) {
     margin: 2px 0;
     line-height: 22px;
   }
@@ -903,13 +923,13 @@ dl.dlNewline > dt {
 }
 
 /* Provide styling for table cell text alignment */
-table .text-left, table .text-left {
+table .text-left {
   text-align: left;
 }
-table .text-center, table .text-center {
+table .text-center {
   text-align: center;
 }
-table .text-right, table .text-right {
+table .text-right {
   text-align: right;
 }
 
@@ -976,12 +996,6 @@ address div.right {
   }
 
 }
-/* Tweak the bcp14 keyword presentation */
-.bcp14 {
-  font-variant: small-caps;
-  font-weight: bold;
-  font-size: 0.9em;
-}
 
 /* Dark mode. */
 @media (prefers-color-scheme: dark) {
@@ -996,19 +1010,20 @@ address div.right {
   --pilcrow-strong: #666;
   scrollbar-color: #777 #333;
 }
-/* Trick: a prefix match works because only black and white are allowed */
-svg [stroke="black"], svg [stroke^="#000"] {
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg :is([stroke="black"], [stroke^="#000"]) {
   stroke: var(--text-color);
 }
-svg [stroke="white"], svg [stroke^="#fff"] {
+svg :is([stroke="white"], [stroke^="#fff"]) {
   stroke: var(--background-color);
 }
-svg [fill="black"], svg [fill^="#000"], svg :not([fill]) {
+svg :is([fill="black"], [fill^="#000"], :not([fill])) {
   fill: var(--text-color);
 }
-svg [stroke="fill"], svg [fill^="#fff"] {
+svg :is([stroke="fill"], [fill^="#fff"]) {
   fill: var(--background-color);
-}
 }
 </style>
 
@@ -1018,11 +1033,11 @@ svg [stroke="fill"], svg [fill^="#fff"] {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ocn-model</td>
-<td class="right">June 2022</td>
+<td class="right">July 2022</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Makhijani &amp; Faisal</td>
-<td class="center">Expires 13 December 2022</td>
+<td class="left">Makhijani, et al.</td>
+<td class="center">Expires 3 January 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1035,12 +1050,12 @@ svg [stroke="fill"], svg [fill^="#fff"] {
 <dd class="internet-draft">draft-km-intarea-ocn-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-06-11" class="published">11 June 2022</time>
+<time datetime="2022-07-02" class="published">2 July 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-12-13">13 December 2022</time></dd>
+<dd class="expires"><time datetime="2023-01-03">3 January 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1050,6 +1065,10 @@ svg [stroke="fill"], svg [fill^="#fff"] {
 <div class="author">
       <div class="author-name">T. Faisal</div>
 <div class="org">King’s College London</div>
+</div>
+<div class="author">
+      <div class="author-name">R. Li</div>
+<div class="org">Futurewei</div>
 </div>
 </dd>
 </dl>
@@ -1094,7 +1113,7 @@ Standardized mechanisms will facilitate large-scale machine-to-machine communica
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 13 December 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 3 January 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1219,7 +1238,7 @@ Standardized mechanisms will facilitate large-scale machine-to-machine communica
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-physical-layer" class="xref">Physical Layer</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-media-layer" class="xref">Media Layer</a></p>
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-link-layer" class="xref">Link Layer</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
                 <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="xref">6.3</a>.  <a href="#name-network-layer" class="xref">Network Layer</a></p>
@@ -1762,10 +1781,10 @@ OCN networks may be deployed at different network layers as discussed below.<a h
 <p id="section-6.1-1">An OCN network may be implemented fully on the layer one of the protocol stack. It is the most trivial example of an operations and control in which an actuator or sensor is directly accessed from a controller. For example, turning the switch on or off manually, turns a bulb, fan, etc on/off. The field-devices are connected to controller directly over a wire. Such type of scenarios are not part of the OCN, as there is no network involved.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="media-layer">
+<div id="link-layer">
 <section id="section-6.2">
-        <h3 id="name-media-layer">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-media-layer" class="section-name selfRef">Media Layer</a>
+        <h3 id="name-link-layer">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-link-layer" class="section-name selfRef">Link Layer</a>
         </h3>
 <p id="section-6.2-1">An OCN network may be implemented on the layer 2 as a local area network.  In factory floors or plants, recently realtime Ethernet networks are deployed to meet some of the characteristics of OCN. The layer 2 solutions are difficult to extend and generalize beyond a certain distance. It is difficult to easily integrate cloud-based remote control and operations specific use cases in such cases.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">Other media options include 5G radio communications that also support many of the OCN attributes. Furthermore, OCN could complement these access network technologies by connecting them over wide areas for edge and cloud related accesses.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
@@ -1820,11 +1839,11 @@ OCN networks may be deployed at different network layers as discussed below.<a h
 <dd class="break"></dd>
 <dt id="NIST-OT">[NIST-OT]</dt>
       <dd>
-<span class="refAuthor">Initiative, J. T. F. T.</span> and <span class="refAuthor">National Institute of Standards and Technology</span>, <span class="refTitle">"Risk management framework for information systems and organizations:"</span>, <span class="seriesInfo">DOI 10.6028/nist.sp.800-37r2</span>, <span>&lt;<a href="http://dx.doi.org/10.6028/nist.sp.800-37r2">http://dx.doi.org/10.6028/nist.sp.800-37r2</a>&gt;</span>. </dd>
+<span class="refTitle">"*** BROKEN REFERENCE ***"</span>. </dd>
 <dd class="break"></dd>
 <dt id="PTP-GRID">[PTP-GRID]</dt>
       <dd>
-<span class="refAuthor">IEEE</span>, <span class="refTitle">"IEC/IEEE International Standard - Communication networks and systems for power utility automation – Part 9-3: Precision time protocol profile for power utility automation"</span>, <span class="seriesInfo">DOI 10.1109/ieeestd.2016.7479438</span>, <span>&lt;<a href="http://dx.doi.org/10.1109/ieeestd.2016.7479438">http://dx.doi.org/10.1109/ieeestd.2016.7479438</a>&gt;</span>. </dd>
+<span class="refTitle">"*** BROKEN REFERENCE ***"</span>. </dd>
 <dd class="break"></dd>
 <dt id="TSNTG">[TSNTG]</dt>
     <dd>
@@ -1851,6 +1870,14 @@ OCN networks may be deployed at different network layers as discussed below.<a h
 <div class="email">
 <span>Email:</span>
 <a href="mailto:tooba.faisal@kcl.ac.uk" class="email">tooba.faisal@kcl.ac.uk</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Richard Li</span></div>
+<div dir="auto" class="left"><span class="org">Futurewei</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:richard.li@futurewei.com" class="email">richard.li@futurewei.com</a>
 </div>
 </address>
 </section>

@@ -5,8 +5,10 @@
 Internet Area Working Group                                 K. Makhijani
 Internet-Draft                                                 Futurewei
 Intended status: Informational                                 T. Faisal
-Expires: 13 December 2022                          King’s College London
-                                                            11 June 2022
+Expires: 3 January 2023                            King’s College London
+                                                                   R. Li
+                                                               Futurewei
+                                                             2 July 2022
 
 
      Operations and Control Networks - Reference Model and Taxonomy
@@ -51,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 December 2022.
+   This Internet-Draft will expire on 3 January 2023.
 
 Copyright Notice
 
@@ -94,7 +96,7 @@ Table of Contents
        5.2.5.  Privacy
    6.  OCN Examples and Realizations
      6.1.  Physical Layer
-     6.2.  Media Layer
+     6.2.  Link Layer
      6.3.  Network Layer
    7.  IANA Considerations
    8.  Security Considerations
@@ -606,7 +608,7 @@ Table of Contents
    controller directly over a wire.  Such type of scenarios are not part
    of the OCN, as there is no network involved.
 
-6.2.  Media Layer
+6.2.  Link Layer
 
    An OCN network may be implemented on the layer 2 as a local area
    network.  In factory floors or plants, recently realtime Ethernet
@@ -660,17 +662,9 @@ Table of Contents
               DOI 10.17487/RFC8655, October 2019,
               <https://www.rfc-editor.org/rfc/rfc8655>.
 
-   [NIST-OT]  Initiative, J. T. F. T. and National Institute of
-              Standards and Technology, "Risk management framework for
-              information systems and organizations:",
-              DOI 10.6028/nist.sp.800-37r2,
-              <http://dx.doi.org/10.6028/nist.sp.800-37r2>.
+   [NIST-OT]  "*** BROKEN REFERENCE ***".
 
-   [PTP-GRID] IEEE, "IEC/IEEE International Standard - Communication
-              networks and systems for power utility automation – Part
-              9-3: Precision time protocol profile for power utility
-              automation", DOI 10.1109/ieeestd.2016.7479438,
-              <http://dx.doi.org/10.1109/ieeestd.2016.7479438>.
+   [PTP-GRID] "*** BROKEN REFERENCE ***".
 
    [TSNTG]    "IEEE, "Time-Sensitive Networking (TSN) Task Group"",
               2018, <https://1.ieee802.org/tsn>.
@@ -685,3 +679,8 @@ Authors' Addresses
    Tooba Faisal
    King’s College London
    Email: tooba.faisal@kcl.ac.uk
+
+
+   Richard Li
+   Futurewei
+   Email: richard.li@futurewei.com
