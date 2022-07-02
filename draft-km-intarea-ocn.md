@@ -25,6 +25,12 @@ author:
   name: Tooba Faisal
   org: King’s College London
   email: tooba.faisal@kcl.ac.uk
+-
+  ins: R. Li
+  name: Richard Li
+  org: Futurewei
+  email: richard.li@futurewei.com
+
 
 informative:
 
@@ -467,7 +473,7 @@ OCN networks may be deployed at different network layers as discussed below.
 
 An OCN network may be implemented fully on the layer one of the protocol stack. It is the most trivial example of an operations and control in which an actuator or sensor is directly accessed from a controller. For example, turning the switch on or off manually, turns a bulb, fan, etc on/off. The field-devices are connected to controller directly over a wire. Such type of scenarios are not part of the OCN, as there is no network involved.
 
-## Media Layer
+## Link Layer
 
  An OCN network may be implemented on the layer 2 as a local area network.  In factory floors or plants, recently realtime Ethernet networks are deployed to meet some of the characteristics of OCN. The layer 2 solutions are difficult to extend and generalize beyond a certain distance. It is difficult to easily integrate cloud-based remote control and operations specific use cases in such cases.
 
