@@ -5,10 +5,10 @@
 Internet Area Working Group                                 K. Makhijani
 Internet-Draft                                                 Futurewei
 Intended status: Informational                                 T. Faisal
-Expires: 3 January 2023                            King’s College London
+Expires: 1 February 2023                           King’s College London
                                                                    R. Li
                                                                Futurewei
-                                                             2 July 2022
+                                                            31 July 2022
 
 
      Operations and Control Networks - Reference Model and Taxonomy
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 January 2023.
+   This Internet-Draft will expire on 1 February 2023.
 
 Copyright Notice
 
@@ -662,9 +662,18 @@ Table of Contents
               DOI 10.17487/RFC8655, October 2019,
               <https://www.rfc-editor.org/rfc/rfc8655>.
 
-   [NIST-OT]  "*** BROKEN REFERENCE ***".
+   [NIST-OT]  "Risk management framework for information systems and
+              organizations:: a system life cycle approach for security
+              and privacy", National Institute of Standards and
+              Technology report, DOI 10.6028/nist.sp.800-37r2, December
+              2018, <https://doi.org/10.6028/nist.sp.800-37r2>.
 
-   [PTP-GRID] "*** BROKEN REFERENCE ***".
+   [PTP-GRID] "IEC/IEEE International Standard - Communication networks
+              and systems for power utility automation – Part 9-3:
+              Precision time protocol profile for power utility
+              automation", IEEE standard,
+              DOI 10.1109/ieeestd.2016.7479438, August 2016,
+              <https://doi.org/10.1109/ieeestd.2016.7479438>.
 
    [TSNTG]    "IEEE, "Time-Sensitive Networking (TSN) Task Group"",
               2018, <https://1.ieee802.org/tsn>.
